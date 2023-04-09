@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import { usePosts } from "../stores/posts";
-import TimelineItem from "./TimelineItem.vue"
-import { periods } from "../constants"
+  import { usePosts } from '../stores/posts'
+  import TimelineItem from './TimelineItem.vue'
+  import { periods } from '../constants'
 
-const postsStore = usePosts()
+  const postsStore = usePosts()
 
-await postsStore.fetchPosts()
+  await postsStore.fetchPosts()
 </script>
 
 <template>
   <div class="message is-primary is-marginless">
-    <div class="message-header">
+    <div class="message-header" role="title">
       <div>Posts for {{ postsStore.selectedPeriod.toLowerCase() }}</div>
     </div>
   </div>
@@ -26,10 +26,6 @@ await postsStore.fetchPosts()
       </a>
     </span>
 
-    <TimelineItem
-      v-for="post of postsStore.filteredPosts"
-      :key="post.id"
-      :post="post"
-    />
+    <TimelineItem v-for="post of postsStore.filteredPosts" :key="post.id" :post="post" />
   </nav>
 </template>

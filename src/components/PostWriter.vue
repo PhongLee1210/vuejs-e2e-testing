@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref, onMounted, watch, watchEffect } from "vue";
-import { Post, TimelinePost } from "../posts";
+import type { Post, TimelinePost } from "../posts";
 import { useRouter } from "vue-router"
 import { marked } from "marked";
 import highlightjs from "highlight.js";
@@ -99,6 +99,7 @@ async function handleClick() {
     <div class="column">
       <div
         ref="contentEditable"
+        data-cy="editor"
         contenteditable
         @input="handleInput" />
     </div>
